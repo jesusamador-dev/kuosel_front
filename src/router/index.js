@@ -1,11 +1,41 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import Auth from '@/layout/Auth.vue';
+import LoginView from '@/views/auth/LoginView.vue';
+import RegisterView from '@/views/auth/RegisterView.vue';
+import Admin from '@/layout/Admin.vue';
+import HomeView from '@/views/HomeView.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
+    name: 'admin',
+    component: Admin,
+    redirect: '/',
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: HomeView,
+        meta: { title: 'Inicio' },
+      },
+    ],
+  },
+  {
+    path: '/auth/',
+    redirect: '/auth/login',
+    component: Auth,
+    children: [
+      {
+        path: 'login',
+        name: 'login',
+        component: LoginView,
+      },
+      {
+        path: 'register',
+        name: 'register',
+        component: RegisterView,
+      },
+    ],
   },
   {
     path: '/about',

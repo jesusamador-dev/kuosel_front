@@ -1,18 +1,68 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section>
+    <tabs class="my-6" :tabs="tabs"></tabs>
+    <Transition
+      enter-active-class="animate__animated animate__slideInLeft"
+      leave-active-class="animate__animated animate__slideOutLeft"
+      mode="out-in"
+    >
+      <tab-panel name="estadisticas">
+        <h2>analiticas</h2>
+      </tab-panel>
+    </Transition>
+    <Transition
+      enter-active-class="animate__animated animate__slideInRight"
+      leave-active-class="animate__animated animate__slideOutRight"
+      mode="out-in"
+    >
+      <tab-panel name="movimientos">
+        <h2>movimientos</h2>
+      </tab-panel>
+    </Transition>
+  </section>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { defineComponent } from 'vue';
+import Tabs from '@/components/tabs/Tabs.vue';
+import TabPanel from '@/components/tabs/TabPanel.vue';
 
-export default {
+export default defineComponent({
   name: 'HomeView',
-  components: {
-    HelloWorld,
+  components: { Tabs, TabPanel },
+  data() {
+    return {
+      tabs: [
+        {
+          name: 'estadisticas',
+          title: 'Estadísticas',
+          active: true,
+        },
+        {
+          name: 'movimientos',
+          title: 'Movimientos',
+          active: false,
+        },
+      ],
+    };
   },
-};
+});
 </script>
+<style>
+.slide-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-leave-active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+.slide-enter,
+.slide-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+</style>
