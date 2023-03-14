@@ -1,24 +1,26 @@
 <template>
   <section>
     <tabs class="my-6" :tabs="tabs"></tabs>
-    <Transition
-      enter-active-class="animate__animated animate__slideInLeft"
-      leave-active-class="animate__animated animate__slideOutLeft"
-      mode="out-in"
-    >
-      <tab-panel name="estadisticas">
-        <h2>analiticas</h2>
-      </tab-panel>
-    </Transition>
-    <Transition
-      enter-active-class="animate__animated animate__slideInRight"
-      leave-active-class="animate__animated animate__slideOutRight"
-      mode="out-in"
-    >
-      <tab-panel name="movimientos">
-        <h2>movimientos</h2>
-      </tab-panel>
-    </Transition>
+    <section class="flex justify-center">
+      <Transition
+        enter-active-class="animate__animated animate__slideInLeft"
+        leave-active-class="animate__animated animate__slideOutLeft"
+        mode="out-in"
+      >
+        <tab-panel name="estadisticas">
+          <analytics></analytics>
+        </tab-panel>
+      </Transition>
+      <Transition
+        enter-active-class="animate__animated animate__slideInRight"
+        leave-active-class="animate__animated animate__slideOutRight"
+        mode="out-in"
+      >
+        <tab-panel name="movimientos">
+          <h2>movimientos</h2>
+        </tab-panel>
+      </Transition>
+    </section>
   </section>
 </template>
 
@@ -26,10 +28,11 @@
 import { defineComponent } from 'vue';
 import Tabs from '@/components/tabs/Tabs.vue';
 import TabPanel from '@/components/tabs/TabPanel.vue';
+import Analytics from '@/components/analytics/Analytics.vue';
 
 export default defineComponent({
   name: 'HomeView',
-  components: { Tabs, TabPanel },
+  components: { Tabs, TabPanel, Analytics },
   data() {
     return {
       tabs: [
