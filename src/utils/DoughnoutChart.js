@@ -12,20 +12,35 @@ class DoughnutTextInsideController extends DoughnutController {
     const {
       width, height, config, ctx,
     } = this.chart;
-    const text = config.options?.text;
+    const text = `${config.options?.text}`;
     this.widthText = this.widthText === 0 ? ctx.measureText(text).width : this.widthText;
-
-    const fontSize = ((width / (this.widthText + 50)) * 10).toFixed(0);
-    console.log(ctx.measureText(text));
-    console.log(fontSize);
-    console.log(text);
-    ctx.font = `${fontSize}px sans-serif`;
+    const fontSize = (((width - 40) / (this.widthText + 50)) * 10).toFixed(0);
+    ctx.font = `bold ${fontSize}px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`;
     ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'rgb(15 23 42)';
 
     const textX = Math.round((width - ctx.measureText(text).width) / 2);
-    const textY = height / 2;
+    const textY = (height / 2) + 15;
 
     ctx.fillText(text, textX, textY);
+
+    const month = `${config.options?.month}`;
+    ctx.font = '16px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'rgb(156 163 175)';
+    const textMonthX = Math.round((width - ctx.measureText(month).width) / 2);
+    ctx.fillText(month, textMonthX, textY - 30);
+
+    // const { stroke } = ctx;
+    // ctx.stroke = () => {
+    //   ctx.save();
+    //   ctx.shadowColor = 'rgba(0,0,0,1)';
+    //   ctx.shadowBlur = 10;
+    //   ctx.shadowOffsetX = 0;
+    //   ctx.shadowOffsetY = 10;
+    //   stroke.apply(ctx);
+    //   ctx.restore();
+    // };
   }
 }
 

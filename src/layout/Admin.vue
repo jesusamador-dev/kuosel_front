@@ -2,15 +2,17 @@
 <template>
   <main class="overflow-hidden">
     <TopMenu />
-    <router-view v-slot="{ Component, route }">
-      <transition
-        enter-active-class="animate__animated animate__fadeInUp"
-        leave-active-class="animate__animated animate__fadeOutDown"
-        mode="out-in"
-      >
-        <component :is="Component" :key="route.path" />
-      </transition>
-    </router-view>
+    <section class="relative w-full mb-20 bg-white border-t border-gray-100">
+      <router-view v-slot="{ Component, route }">
+        <transition
+          enter-active-class="animate__animated animate__fadeInUp"
+          leave-active-class="animate__animated animate__fadeOutDown"
+          mode="out-in"
+        >
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
+    </section>
     <BottomMenu />
   </main>
 </template>

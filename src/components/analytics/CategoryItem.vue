@@ -12,19 +12,21 @@
         </svg>
       </span>
       <div class="flex flex-col">
-        <p class="text-md text-slate-700 mb-1">{{ transaction.title }}</p>
-        <span class="text-xs text-gray-400">{{ transaction.categoryName }}</span>
+        <p class="text-md text-slate-700 mb-1">{{ name }}</p>
+        <span class="text-xs text-gray-400">{{ quantityOpertations }} operaciones</span>
       </div>
     </span>
-    <span class="text-md tracking-wide font-bold text-slate-800"> {{ transaction.amount }} </span>
+    <span class="text-md tracking-wide font-bold text-slate-800"> {{ amount }} </span>
   </li>
 </template>
 
 <script setup>
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
-  transaction: Object,
+  name: String,
+  quantityOpertations: String,
+  amount: String,
 });
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

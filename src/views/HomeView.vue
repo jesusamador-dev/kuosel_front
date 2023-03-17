@@ -2,24 +2,12 @@
   <section>
     <tabs class="my-6" :tabs="tabs"></tabs>
     <section class="flex justify-center">
-      <Transition
-        enter-active-class="animate__animated animate__slideInLeft"
-        leave-active-class="animate__animated animate__slideOutLeft"
-        mode="out-in"
-      >
-        <tab-panel name="estadisticas">
-          <analytics></analytics>
-        </tab-panel>
-      </Transition>
-      <Transition
-        enter-active-class="animate__animated animate__slideInRight"
-        leave-active-class="animate__animated animate__slideOutRight"
-        mode="out-in"
-      >
-        <tab-panel name="movimientos">
-          <h2>movimientos</h2>
-        </tab-panel>
-      </Transition>
+      <tab-panel name="estadisticas" class="w-full px-3">
+        <analytics></analytics>
+      </tab-panel>
+      <tab-panel name="movimientos" class="w-full px-3">
+        <transactions></transactions>
+      </tab-panel>
     </section>
   </section>
 </template>
@@ -29,10 +17,16 @@ import { defineComponent } from 'vue';
 import Tabs from '@/components/tabs/Tabs.vue';
 import TabPanel from '@/components/tabs/TabPanel.vue';
 import Analytics from '@/components/analytics/Analytics.vue';
+import Transactions from '@/components/transactions/index.vue';
 
 export default defineComponent({
   name: 'HomeView',
-  components: { Tabs, TabPanel, Analytics },
+  components: {
+    Tabs,
+    TabPanel,
+    Analytics,
+    Transactions,
+  },
   data() {
     return {
       tabs: [
