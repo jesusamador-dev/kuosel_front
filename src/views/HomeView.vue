@@ -1,14 +1,12 @@
 <template>
-  <section>
-    <tabs class="my-6" :tabs="tabs"></tabs>
-    <section class="flex justify-center">
-      <tab-panel name="estadisticas" class="w-full px-3">
-        <analytics></analytics>
-      </tab-panel>
-      <tab-panel name="movimientos" class="w-full px-3">
-        <transactions></transactions>
-      </tab-panel>
-    </section>
+  <tabs class="my-6" :tabs="tabs"></tabs>
+  <section class="flex justify-center">
+    <tab-panel name="estadisticas" class="w-full px-3">
+      <analytics></analytics>
+    </tab-panel>
+    <tab-panel name="movimientos" class="w-full px-3">
+      <transactions></transactions>
+    </tab-panel>
   </section>
 </template>
 

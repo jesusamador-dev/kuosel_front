@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="w-fit gap-3 rounded-full mx-auto bg-gray-100 px-3 py-2 flex">
+  <div class="w-fit gap-3 rounded-full mx-auto bg-gray-100 px-1 py-1 flex">
     <tab-item
       v-for="(tab, index) in tabsLocal"
       :key="index"

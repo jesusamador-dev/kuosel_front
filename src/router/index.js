@@ -4,6 +4,7 @@ import LoginView from '@/views/auth/LoginView.vue';
 import RegisterView from '@/views/auth/RegisterView.vue';
 import Admin from '@/layout/Admin.vue';
 import HomeView from '@/views/HomeView.vue';
+import AddTransactionView from '@/views/AddTransactionView.vue';
 
 const routes = [
   {
@@ -17,6 +18,12 @@ const routes = [
         name: 'home',
         component: HomeView,
         meta: { title: 'Inicio' },
+      },
+      {
+        path: '/add-transaction',
+        name: 'add-transaction',
+        component: AddTransactionView,
+        meta: { title: 'Nuevo movimiento' },
       },
     ],
   },
